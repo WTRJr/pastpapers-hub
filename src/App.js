@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
-import { db } from './firebase';
+import { collection, getDocs } from 'firebase/firestore';import { db } from './firebase';
 import { Upload, Menu, LogOut } from 'lucide-react';
 import QuestionCard from './components/QuestionCard';
 import UploadModal from './components/UploadModal';

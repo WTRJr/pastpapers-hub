@@ -6,8 +6,8 @@
 
 body {
   font-family: 'Inter', 'Segoe UI', sans-serif;
-  background: #f8fafc;
-  color: #1e293b;
+  background: #fafafa;
+  color: #1a1a1a;
 }
 
 .App {
@@ -18,33 +18,33 @@ body {
 
 /* Header - Closely grouped elements */
 .header {
-  background: #4f46e5; /* Main indigo */
+  background: #475569; /* Muted slate - soft on eyes */
   color: white;
   padding: 2rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .header h1 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.5px;
 }
 
 .header-actions {
   display: flex;
-  gap: 0.75rem; /* Buttons close together - related actions */
+  gap: 0.75rem;
 }
 
 .btn-admin, .btn-upload, .btn-logout {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Icon and text close together */
+  gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
@@ -55,76 +55,71 @@ body {
 .btn-admin {
   background: transparent;
   color: white;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-admin:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: white;
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-upload {
   background: white;
-  color: #4f46e5; /* Main indigo */
+  color: #475569;
   border-color: white;
 }
 
 .btn-upload:hover {
   background: #f8fafc;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .btn-logout {
   background: transparent;
   color: white;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-logout:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: white;
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Filter Bar - Related filters grouped with consistent spacing */
+/* Filter Bar */
 .filter-bar {
   background: white;
   padding: 2rem 3rem;
   display: flex;
-  gap: 1rem; /* Consistent spacing between filters */
+  gap: 1rem;
   flex-wrap: wrap;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  border-bottom: 3px solid #eef2ff; /* Light indigo */
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .filter-bar select, .filter-bar input {
   padding: 0.875rem 1.125rem;
-  border: 2px solid #e0e7ff; /* Light indigo */
-  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
   font-size: 0.95rem;
   flex: 1;
   min-width: 200px;
-  background: #f8fafc;
+  background: white;
   transition: all 0.2s ease;
   font-weight: 500;
-  color: #1e293b;
+  color: #1a1a1a;
 }
 
 .filter-bar select:focus, .filter-bar input:focus {
   outline: none;
-  border-color: #4f46e5; /* Main indigo */
-  background: white;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  border-color: #475569;
+  box-shadow: 0 0 0 3px rgba(71, 85, 105, 0.1);
 }
 
 .btn-clear {
   padding: 0.875rem 1.75rem;
-  background: #4f46e5; /* Main indigo */
+  background: #475569;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
@@ -133,15 +128,14 @@ body {
 }
 
 .btn-clear:hover {
-  background: #4338ca; /* Darker indigo */
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  background: #334155;
+  box-shadow: 0 2px 8px rgba(71, 85, 105, 0.2);
 }
 
-/* Main Content - Large spacing to separate from header/filters */
+/* Main Content */
 .main-content {
   flex: 1;
-  padding: 3rem; /* Large outer padding */
+  padding: 3rem;
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
@@ -150,38 +144,38 @@ body {
 .empty-state {
   text-align: center;
   font-size: 1.25rem;
-  color: #64748b;
-  margin-top: 6rem; /* Large top spacing for emphasis */
+  color: #6b7280;
+  margin-top: 6rem;
   font-weight: 500;
 }
 
 .questions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 2rem; /* Consistent spacing between cards */
+  gap: 2rem;
 }
 
-/* Question Card - Clear visual grouping with internal spacing hierarchy */
+/* Question Card */
 .question-card {
   background: white;
-  border: 2px solid #e0e7ff; /* Light indigo */
-  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
 }
 
 .question-card:hover {
-  border-color: #4f46e5; /* Main indigo */
-  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.15);
-  transform: translateY(-4px);
+  border-color: #475569;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
-/* Card Header - Tightly grouped (subject + menu are related) */
+/* Card Header */
 .card-header {
-  background: #4f46e5; /* Main indigo */
+  background: #475569;
   color: white;
-  padding: 1.25rem 1.5rem; /* Moderate padding */
+  padding: 1.25rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -190,20 +184,20 @@ body {
 }
 
 .card-header h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.625rem; /* Icon close to text */
+  gap: 0.625rem;
   flex: 1;
 }
 
 .menu-btn {
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 6px;
   transition: all 0.2s ease;
   color: white;
   display: flex;
@@ -212,8 +206,8 @@ body {
 }
 
 .menu-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: white;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .dropdown-menu {
@@ -221,9 +215,9 @@ body {
   right: 1rem;
   top: calc(100% + 0.5rem);
   background: white;
-  border: 2px solid #e0e7ff; /* Light indigo */
-  border-radius: 12px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   z-index: 10;
   min-width: 180px;
   overflow: hidden;
@@ -238,12 +232,12 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.625rem; /* Icon close to text */
+  gap: 0.625rem;
   font-size: 0.95rem;
   font-weight: 600;
   transition: all 0.15s ease;
-  color: #1e293b;
-  border-bottom: 1px solid #f8fafc;
+  color: #1a1a1a;
+  border-bottom: 1px solid #f9fafb;
 }
 
 .dropdown-menu button:last-child {
@@ -251,8 +245,8 @@ body {
 }
 
 .dropdown-menu button:hover {
-  background: #eef2ff; /* Very light indigo */
-  color: #4f46e5; /* Main indigo */
+  background: #f9fafb;
+  color: #475569;
 }
 
 .dropdown-menu .delete-btn {
@@ -264,96 +258,96 @@ body {
   color: #b91c1c;
 }
 
-/* Card Body - Clear spacing hierarchy */
+/* Card Body */
 .card-body {
-  padding: 1.5rem; /* Consistent padding around content */
+  padding: 1.5rem;
 }
 
 .card-info {
   display: grid;
-  gap: 0.75rem; /* Info items moderately spaced */
-  margin-bottom: 1.5rem; /* Larger gap before file info section */
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .info-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* Icon, label, value grouped together */
+  gap: 0.75rem;
   padding: 0.875rem 1rem;
-  background: #f8fafc;
-  border-radius: 10px;
-  border-left: 4px solid #4f46e5; /* Main indigo */
+  background: #fafafa;
+  border-radius: 8px;
+  border-left: 3px solid #475569;
 }
 
 .info-item svg {
-  color: #4f46e5; /* Main indigo */
+  color: #475569;
   flex-shrink: 0;
 }
 
 .info-item strong {
   font-weight: 600;
-  color: #64748b;
+  color: #6b7280;
   min-width: 85px;
 }
 
 .info-item span {
-  color: #1e293b;
+  color: #1a1a1a;
   font-weight: 600;
 }
 
-/* File Info - Separated section */
+/* File Info */
 .file-info {
-  margin-top: 1.5rem; /* Clear separation from info items */
-  padding-top: 1.5rem; /* Internal padding */
-  border-top: 2px solid #e0e7ff; /* Light indigo */
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
 }
 
 .file-info svg {
-  color: #4f46e5; /* Main indigo */
+  color: #475569;
   flex-shrink: 0;
   margin-top: 0.125rem;
 }
 
 .file-name {
-  color: #64748b;
+  color: #6b7280;
   font-size: 0.875rem;
   word-break: break-all;
   font-weight: 500;
   line-height: 1.5;
 }
 
-/* Modal - Clear visual separation */
+/* Modal */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(30, 41, 59, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(4px);
-  padding: 1rem; /* Breathing room */
+  backdrop-filter: blur(2px);
+  padding: 1rem;
 }
 
 .modal-content {
   background: white;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   max-width: 550px;
   width: 100%;
   max-height: 90vh;
-  box-shadow: 0 25px 50px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Modal Header - Tightly grouped */
+/* Modal Header */
 .modal-header {
-  background: #4f46e5; /* Main indigo */
+  background: #475569;
   color: white;
   padding: 1.75rem 2rem;
   display: flex;
@@ -363,19 +357,19 @@ body {
 }
 
 .modal-header h2 {
-  font-size: 1.625rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.625rem; /* Icon close to text */
+  gap: 0.625rem;
 }
 
 .close-btn {
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 6px;
   transition: all 0.2s ease;
   color: white;
   display: flex;
@@ -384,11 +378,11 @@ body {
 }
 
 .close-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: white;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Modal Body - Generous padding for breathing room */
+/* Modal Body */
 .modal-body {
   padding: 2rem;
   max-height: calc(90vh - 120px);
@@ -398,58 +392,57 @@ body {
 .modal-content form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Consistent spacing between form groups */
+  gap: 1.5rem;
 }
 
-/* Form Group - Label and input tightly coupled */
+/* Form Group */
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; /* Small gap between label and input */
+  gap: 0.5rem;
 }
 
 .form-group label {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Icon close to label text */
+  gap: 0.5rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a;
   font-size: 0.95rem;
 }
 
 .modal-content input, .modal-content select {
   padding: 0.875rem 1.125rem;
-  border: 2px solid #e0e7ff; /* Light indigo */
-  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
   font-size: 0.95rem;
-  background: #f8fafc;
+  background: white;
   transition: all 0.2s ease;
   font-weight: 500;
-  color: #1e293b;
+  color: #1a1a1a;
 }
 
 .modal-content input:focus, .modal-content select:focus {
   outline: none;
-  border-color: #4f46e5; /* Main indigo */
-  background: white;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  border-color: #475569;
+  box-shadow: 0 0 0 3px rgba(71, 85, 105, 0.1);
 }
 
-/* File Input - Special treatment with more space */
+/* File Input */
 .file-input-wrapper {
   position: relative;
   padding: 2rem;
-  border: 3px dashed #c7d2fe; /* Medium indigo */
-  border-radius: 12px;
-  background: #f8fafc;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  background: #fafafa;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-top: 0.5rem; /* Extra space above file input */
+  margin-top: 0.5rem;
 }
 
 .file-input-wrapper:hover {
-  border-color: #4f46e5; /* Main indigo */
+  border-color: #475569;
   background: white;
 }
 
@@ -467,49 +460,48 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.625rem; /* Elements in upload area close together */
+  gap: 0.625rem;
   pointer-events: none;
 }
 
 .file-input-content svg {
-  color: #4f46e5; /* Main indigo */
+  color: #475569;
 }
 
 .file-input-content p {
   margin: 0;
   line-height: 1.4;
-  color: #1e293b;
+  color: #1a1a1a;
 }
 
-/* Submit Button - Separated with more space */
+/* Submit Button */
 .btn-submit {
   padding: 1.125rem 1.5rem;
-  background: #4f46e5; /* Main indigo */
+  background: #475569;
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem; /* Icon close to text */
-  margin-top: 1rem; /* Extra space above submit button */
+  gap: 0.625rem;
+  margin-top: 1rem;
 }
 
 .btn-submit:hover {
-  background: #4338ca; /* Darker indigo */
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.4);
+  background: #334155;
+  box-shadow: 0 4px 12px rgba(71, 85, 105, 0.2);
 }
 
-/* Responsive - Maintain spacing hierarchy on mobile */
+/* Responsive */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
-    gap: 1.25rem; /* More space in vertical layout */
+    gap: 1.25rem;
     text-align: center;
     padding: 1.5rem;
   }
@@ -521,7 +513,7 @@ body {
   .header-actions {
     flex-direction: column;
     width: 100%;
-    gap: 0.75rem; /* Maintain button spacing */
+    gap: 0.75rem;
   }
 
   .header-actions button {
@@ -532,7 +524,7 @@ body {
   .filter-bar {
     flex-direction: column;
     padding: 1.5rem;
-    gap: 1rem; /* Maintain consistent spacing */
+    gap: 1rem;
   }
 
   .filter-bar select, .filter-bar input {

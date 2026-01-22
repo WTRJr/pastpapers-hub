@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore';
+import React, { useState, useEffect } from 'react';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import { X, Upload, Calendar, Clock, BookOpen, FileText, UploadCloud } from 'lucide-react';
 
@@ -12,6 +12,50 @@ function UploadModal({ onClose, fetchQuestions }) {
     file: null,
     fileName: ''
   });
+
+  const [existingSubjects, setExistingSubjects] = useState([]);
+  const [existingExamTypes, setExistingExamTypes] = useState([]);
+  const [showNewSubject, setShowNewSubject] = useState(false);
+  const [showNewExamType, setShowNewExamType] = useState(false);
+
+  // Fetch existing subjects and exam types from Firestore
+  useEffect(() => {
+    const fetchExistingData = async () => {
+      const querySnapshot = await getDocs(collection(db, 'questions'));
+      const questions = querySnapshot.docs.map(doc => doc.data());
+      
+      // Get unique subjects and exam types
+      const subjects = [...new Set(questions.map(q => q.subject))].filter(Boolean);
+      const examTypes = [...new Set(questions.map(q => q.examType))].filter(Boolean);
+      
+      setExistingSubjects(subjects);
+      setExistingExamTypes(examTypes);
+    };
+    
+    fetchExistingData();
+  }, []);
+
+  const handleSubjectChange = (e) => {
+    const value = e.target.value;
+    if (value === '__ADD_NEW__') {
+      setShowNewSubject(true);
+      setFormData({ ...formData, subject: '' });
+    } else {
+      setShowNewSubject(false);
+      setFormData({ ...formData, subject: value });
+    }
+  };
+
+  const handleExamTypeChange = (e) => {
+    const value = e.target.value;
+    if (value === '__ADD_NEW__') {
+      setShowNewExamType(true);
+      setFormData({ ...formData, examType: '' });
+    } else {
+      setShowNewExamType(false);
+      setFormData({ ...formData, examType: value });
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -99,13 +143,48 @@ function UploadModal({ onClose, fetchQuestions }) {
                 <BookOpen size={18} />
                 Subject
               </label>
-              <input
-                type="text"
-                placeholder="e.g., Mathematics"
-                value={formData.subject}
-                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                required
-              />
+              {!showNewSubject ? (
+                <select
+                  value={formData.subject}
+                  onChange={handleSubjectChange}
+                  required
+                >
+                  <option value="">Select Subject</option>
+                  {existingSubjects.map(subject => (
+                    <option key={subject} value={subject}>{subject}</option>
+                  ))}
+                  <option value="__ADD_NEW__">➕ Add New Subject</option>
+                </select>
+              ) : (
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <input
+                    type="text"
+                    placeholder="Enter new subject (e.g., Mathematics)"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    required
+                    style={{ flex: 1 }}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowNewSubject(false);
+                      setFormData({ ...formData, subject: '' });
+                    }}
+                    style={{
+                      padding: '0.875rem 1rem',
+                      background: '#e0e7ff',
+                      border: 'none',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      fontWeight: '600',
+                      color: '#4f46e5'
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="form-group">
@@ -113,13 +192,48 @@ function UploadModal({ onClose, fetchQuestions }) {
                 <FileText size={18} />
                 Exam Type
               </label>
-              <input
-                type="text"
-                placeholder="e.g., Final Exam"
-                value={formData.examType}
-                onChange={(e) => setFormData({ ...formData, examType: e.target.value })}
-                required
-              />
+              {!showNewExamType ? (
+                <select
+                  value={formData.examType}
+                  onChange={handleExamTypeChange}
+                  required
+                >
+                  <option value="">Select Exam Type</option>
+                  {existingExamTypes.map(examType => (
+                    <option key={examType} value={examType}>{examType}</option>
+                  ))}
+                  <option value="__ADD_NEW__">➕ Add New Exam Type</option>
+                </select>
+              ) : (
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <input
+                    type="text"
+                    placeholder="Enter new exam type (e.g., Final Exam)"
+                    value={formData.examType}
+                    onChange={(e) => setFormData({ ...formData, examType: e.target.value })}
+                    required
+                    style={{ flex: 1 }}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowNewExamType(false);
+                      setFormData({ ...formData, examType: '' });
+                    }}
+                    style={{
+                      padding: '0.875rem 1rem',
+                      background: '#e0e7ff',
+                      border: 'none',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      fontWeight: '600',
+                      color: '#4f46e5'
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="form-group">
